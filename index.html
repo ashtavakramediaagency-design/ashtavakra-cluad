@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="hi-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashtavakra Media — Branding, Ads &amp; Digital Growth Agency</title>
+<meta name="description" content="Ashtavakra Media — branding, social media, Google Ads, website aur WhatsApp Business API. Aapke business ki growth, humari zimmedari.">
+<link rel="icon" type="image/png" href="ashtavakra-media-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#2B2A25;
+    --ink-2:#43413A;
+    --paper:#F7F2E7;
+    --paper-white:#FFFEFB;
+    --paper-text:#F3EEE1;
+    --paper-text-dim:#C9C3B4;
+    --gold:#BD7F3F;
+    --gold-deep:#8A5A2A;
+    --gold-light:#E4C594;
+    --line:#E4D9C2;
+    --line-dark:#524F45;
+    --whatsapp:#25D366;
+    --whatsapp-deep:#1DA851;
+    --radius-s:6px;
+    --radius-m:12px;
+    --maxw:1180px;
+    --shadow-soft:0 10px 30px rgba(43,42,37,0.10);
+    font-size:16px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    line-height:1.15;
+    margin:0 0 0.5em;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  p{margin:0 0 1em; max-width:62ch;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  ul{margin:0; padding:0; list-style:none;}
+  button{font-family:inherit;}
+
+  .container{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  section{padding:96px 0;}
+  @media (max-width:720px){ section{padding:64px 0;} }
+
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:0.8rem;
+    letter-spacing:0.14em;
+    color:var(--gold-deep);
+    text-transform:uppercase;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:var(--radius-s);
+    font-weight:600;
+    font-size:0.98rem;
+    text-decoration:none;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color .15s ease;
+  }
+  .btn:focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
+  .btn-primary{
+    background:linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+    color:var(--paper-white);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(138,90,42,0.35);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border-color:var(--line-dark);
+  }
+  .btn-ghost:hover{border-color:var(--ink); background:rgba(43,42,37,0.04);}
+  .btn-ghost.on-dark{color:var(--paper-text); border-color:var(--line-dark);}
+  .btn-ghost.on-dark:hover{border-color:var(--paper-text); background:rgba(255,255,255,0.06);}
+  .btn-whatsapp{
+    background:var(--whatsapp);
+    color:#fff;
+  }
+  .btn-whatsapp:hover{background:var(--whatsapp-deep); transform:translateY(-2px);}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,242,231,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .brand img{height:40px; width:auto;}
+  .nav-links{display:flex; align-items:center; gap:32px;}
+  .nav-links a{
+    text-decoration:none; color:var(--ink-2); font-weight:500; font-size:0.95rem;
+    padding:6px 2px; border-bottom:2px solid transparent;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .nav-links a:hover{border-color:var(--gold); color:var(--ink);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .nav-toggle{
+    display:none; background:none; border:none; cursor:pointer; padding:8px;
+  }
+  .nav-toggle span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; transition:transform .2s ease, opacity .2s ease;}
+
+  @media (max-width:920px){
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); border-bottom:1px solid var(--line);
+      flex-direction:column; align-items:flex-start; gap:0;
+      padding:8px 24px 18px;
+      transform-origin:top;
+      max-height:0; overflow:hidden; opacity:0;
+      transition:max-height .25s ease, opacity .2s ease;
+    }
+    .nav-links.open{max-height:340px; opacity:1;}
+    .nav-links a{width:100%; padding:12px 0; border-bottom:1px solid var(--line);}
+    .nav-cta .btn-ghost{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:88px 0 100px;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; align-items:center; gap:32px;
+    position:relative; z-index:2;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 4.6vw, 3.6rem);
+    max-width:14ch;
+  }
+  .hero .lede{
+    font-size:1.15rem; color:var(--ink-2); max-width:46ch; margin-bottom:1.8em;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px;}
+  .hero-art{
+    position:relative; display:flex; justify-content:center; align-items:center;
+  }
+  .hero-art img{
+    width:100%; max-width:420px;
+    filter:drop-shadow(0 24px 40px rgba(43,42,37,0.14));
+    animation:hero-in 0.9s ease both;
+  }
+  .hero-copy{animation:hero-in-text 0.9s ease both;}
+  @keyframes hero-in{ from{opacity:0; transform:scale(0.92) rotate(-4deg);} to{opacity:1; transform:scale(1) rotate(-3deg);} }
+  @keyframes hero-in-text{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+  @media (prefers-reduced-motion:reduce){
+    .hero-art img, .hero-copy{animation:none;}
+  }
+
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1; margin-bottom:8px;}
+    .hero-art img{max-width:220px;}
+  }
+
+  /* ---------- WHY STRIP ---------- */
+  .why{background:var(--ink); color:var(--paper-text);}
+  .why h2{color:var(--paper-text); font-size:1.7rem; max-width:22ch;}
+  .why-sub{color:var(--paper-text-dim); max-width:52ch;}
+  .why-grid{
+    margin-top:48px;
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:0;
+    border-top:1px solid var(--line-dark);
+  }
+  .why-item{
+    padding:32px 28px 8px;
+    border-right:1px solid var(--line-dark);
+  }
+  .why-item:last-child{border-right:none;}
+  .why-item .num{font-family:'Fraunces',serif; font-size:1.6rem; color:var(--gold-light); margin-bottom:10px; display:block;}
+  .why-item h3{color:var(--paper-text); font-size:1.15rem; margin-bottom:0.4em;}
+  .why-item p{color:var(--paper-text-dim); font-size:0.96rem;}
+  @media (max-width:720px){
+    .why-grid{grid-template-columns:1fr;}
+    .why-item{border-right:none; border-bottom:1px solid var(--line-dark);}
+  }
+
+  /* ---------- SERVICES ---------- */
+  .section-head{max-width:60ch; margin-bottom:44px;}
+  .section-head h2{font-size:2rem;}
+  .section-head p{color:var(--ink-2); font-size:1.05rem;}
+
+  .core-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    margin-bottom:72px;
+  }
+  .core-card{
+    background:var(--paper-white);
+    border:1px solid var(--line);
+    border-top:3px solid var(--gold);
+    border-radius:var(--radius-s);
+    padding:20px 18px;
+  }
+  .core-card .k{
+    display:block; font-family:'Work Sans'; font-weight:600; font-size:0.75rem;
+    letter-spacing:0.08em; color:var(--gold-deep); margin-bottom:8px;
+  }
+  .core-card h3{font-size:1.05rem; font-weight:600; font-family:'Work Sans'; margin:0;}
+  @media (max-width:880px){ .core-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:480px){ .core-grid{grid-template-columns:1fr;} }
+
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:40px 32px;
+  }
+  .cat-block h4{
+    font-family:'Work Sans'; font-size:1rem; font-weight:700;
+    padding-bottom:10px; margin-bottom:14px; border-bottom:1px solid var(--line);
+  }
+  .cat-block li{
+    position:relative; padding-left:16px; margin-bottom:10px;
+    color:var(--ink-2); font-size:0.96rem;
+  }
+  .cat-block li::before{
+    content:""; position:absolute; left:0; top:0.55em;
+    width:6px; height:6px; border-radius:50%; background:var(--gold);
+  }
+  @media (max-width:880px){ .cat-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .cat-grid{grid-template-columns:1fr;} }
+
+  /* ---------- GOOGLE ADS ---------- */
+  .ads{background:var(--ink); color:var(--paper-text);}
+  .ads .section-head h2{color:var(--paper-text);}
+  .ads .section-head p{color:var(--paper-text-dim);}
+
+  .ads-table-wrap{overflow-x:auto; margin-bottom:56px; border:1px solid var(--line-dark); border-radius:var(--radius-m);}
+  table.ads-table{width:100%; border-collapse:collapse; min-width:560px;}
+  table.ads-table th, table.ads-table td{
+    text-align:left; padding:14px 20px; font-size:0.95rem;
+  }
+  table.ads-table thead th{
+    font-family:'Work Sans'; font-weight:600; font-size:0.78rem; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--gold-light);
+    border-bottom:1px solid var(--line-dark);
+  }
+  table.ads-table tbody tr{border-bottom:1px solid rgba(228,217,194,0.12);}
+  table.ads-table tbody tr:last-child{border-bottom:none;}
+  table.ads-table tbody td:first-child{color:var(--paper-text); font-weight:500;}
+  table.ads-table tbody td:last-child{color:var(--paper-text-dim);}
+
+  .ads-package h3{color:var(--paper-text); font-size:1.2rem; margin-bottom:18px;}
+  .check-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px 32px;}
+  .check-grid li{
+    display:flex; gap:10px; align-items:flex-start; color:var(--paper-text-dim); font-size:0.95rem;
+  }
+  .check-grid li svg{flex:none; margin-top:3px; color:var(--gold-light);}
+  @media (max-width:640px){ .check-grid{grid-template-columns:1fr;} }
+  .ads-note{
+    margin-top:28px; padding-top:20px; border-top:1px dashed var(--line-dark);
+    color:var(--paper-text-dim); font-size:0.88rem; max-width:70ch;
+  }
+
+  /* ---------- WHATSAPP API ---------- */
+  .wapi{background:#EFFBF3;}
+  .wapi-grid{display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center;}
+  .wapi-icon{
+    width:74px; height:74px; border-radius:50%;
+    background:var(--whatsapp); display:flex; align-items:center; justify-content:center;
+    flex:none;
+  }
+  .wapi h2{font-size:1.8rem;}
+  .wapi-list{margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:8px 28px;}
+  .wapi-list li{
+    display:flex; gap:8px; color:var(--ink-2); font-size:0.95rem; align-items:flex-start;
+  }
+  .wapi-list li::before{content:"✓"; color:var(--whatsapp-deep); font-weight:700; flex:none;}
+  @media (max-width:880px){
+    .wapi-grid{grid-template-columns:1fr; text-align:left;}
+    .wapi-list{grid-template-columns:1fr;}
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid; grid-template-columns:1.3fr 0.9fr; gap:40px; align-items:flex-start;
+  }
+  @media (max-width:920px){ .contact-grid{grid-template-columns:1fr;} }
+
+  .form-panel{
+    background:var(--paper-white);
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    padding:36px;
+    box-shadow:var(--shadow-soft);
+  }
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media (max-width:560px){ .form-row{grid-template-columns:1fr;} }
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block; font-size:0.85rem; font-weight:600; color:var(--ink-2); margin-bottom:6px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%; padding:12px 14px; border:1.5px solid var(--line);
+    border-radius:var(--radius-s); font-family:inherit; font-size:0.98rem;
+    background:var(--paper-white); color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none; border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(189,127,63,0.18);
+  }
+  .field textarea{resize:vertical; min-height:90px;}
+  .form-note{font-size:0.82rem; color:var(--ink-2); margin-top:10px;}
+
+  .direct-card{
+    background:var(--ink); color:var(--paper-text);
+    border-radius:var(--radius-m); padding:32px;
+  }
+  .direct-card h3{color:var(--paper-text); font-size:1.25rem;}
+  .direct-card p{color:var(--paper-text-dim); font-size:0.95rem;}
+  .direct-list{margin-top:20px; display:flex; flex-direction:column; gap:14px;}
+  .direct-list a{
+    display:flex; align-items:center; gap:10px; text-decoration:none;
+    color:var(--paper-text); font-weight:500; font-size:0.95rem;
+  }
+  .direct-list a:hover{color:var(--gold-light);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); color:var(--paper-text-dim); padding-top:64px;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:36px;
+    padding-bottom:40px; border-bottom:1px solid var(--line-dark);
+  }
+  .footer-brand img{height:36px; margin-bottom:14px;}
+  .footer-brand p{color:var(--paper-text-dim); font-size:0.92rem;}
+  footer h5{
+    color:var(--paper-text); font-family:'Work Sans'; font-size:0.85rem;
+    letter-spacing:0.06em; margin-bottom:14px;
+  }
+  footer .footer-links li{margin-bottom:10px;}
+  footer .footer-links a{text-decoration:none; color:var(--paper-text-dim); font-size:0.92rem;}
+  footer .footer-links a:hover{color:var(--gold-light);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    padding:22px 0; font-size:0.82rem;
+  }
+  @media (max-width:720px){ .footer-grid{grid-template-columns:1fr; gap:28px;} }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed; right:22px; bottom:22px; z-index:60;
+    width:58px; height:58px; border-radius:50%;
+    background:var(--whatsapp); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(37,211,102,0.45);
+    text-decoration:none;
+    transition:transform .15s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-row">
+    <a href="#top" class="brand">
+      <img src="ashtavakra-media-icon.png" alt="Ashtavakra Media logo">
+      <span style="font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem;">Ashtavakra Media</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#google-ads">Google Ads</a>
+      <a href="#whatsapp-api">WhatsApp API</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">Project Shuru Karein</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu kholiye" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>Rasta chahe tedha ho, result hamesha seedha.</h1>
+        <p class="lede">Ashtavakra Media ek full-service marketing agency hai — branding se lekar Google Ads tak, aapke business ko digital duniya mein sahi tareeke se aage badhane ke liye.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Project Shuru Karein</a>
+          <a href="https://wa.me/918462942003?text=Hi%20Ashtavakra%20Media%2C%20mujhe%20apne%20business%20ke%20liye%20marketing%20help%20chahiye." target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp par Baat Karein</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="ashtavakra-media-icon.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <div class="container">
+      <span class="eyebrow">Kyun Ashtavakra Media</span>
+      <h2>Bade agency ka size nahi, chhoti agency ka dhyaan — dono ka fayda.</h2>
+      <p class="why-sub">2026 mein shuru hui ek digital-first agency, jo aapke business ko apna khud ka project maankar chalati hai.</p>
+      <div class="why-grid">
+        <div class="why-item">
+          <span class="num">01</span>
+          <h3>Personal Dhyaan</h3>
+          <p>Bade agency ka bhaari process nahi. Har client se seedha, direct baat-cheet — humse hi.</p>
+        </div>
+        <div class="why-item">
+          <span class="num">02</span>
+          <h3>Ek Chhat Ke Neeche</h3>
+          <p>Branding, ads, website, SEO — sab kuch ek hi jagah. Alag-alag vendors ka jhanjhat khatam.</p>
+        </div>
+        <div class="why-item">
+          <span class="num">03</span>
+          <h3>Digital-First Soch</h3>
+          <p>2026 ke tools, platforms aur trends ke saath kaam — purani style ki marketing nahi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>Hamari Services</h2>
+        <p>In-mein se ye 8 services hamari sabse strong shuruaat hain — zyadatar clients yahin se start karte hain.</p>
+      </div>
+
+      <div class="core-grid">
+        <div class="core-card"><span class="k">CORE</span><h3>Brand Identity</h3></div>
+        <div class="core-card"><span class="k">CORE</span><h3>Social Media Management</h3></div>
+        <div class="core-card"><span class="k">CORE</span><h3>Reels &amp; Video Production</h3></div>
+        <div class="core-card"><span class="k">CORE</span><h3>Meta &amp; Google Ads</h3></div>
+        <div class="core-card"><span class="k">CORE</span><h3>Website Development</h3></div>
+        <div class="core-card"><span class="k">CORE</span><h3>SEO &amp; Local SEO</h3></div>
+        <div class="core-card"><span class="k">CORE</span><h3>Lead Generation</h3></div>
+        <div class="core-card"><span class="k">CORE</span><h3>Content &amp; Graphic Design</h3></div>
+      </div>
+
+      <div class="section-head" style="margin-bottom:32px;">
+        <h2 style="font-size:1.5rem;">Poori Service List</h2>
+        <p>Zaroorat ke hisaab se aur bhi bahut kuch — sab ek hi agency ke andar.</p>
+      </div>
+
+      <div class="cat-grid">
+        <div class="cat-block">
+          <h4>Branding &amp; Design</h4>
+          <ul>
+            <li>Brand strategy</li>
+            <li>Logo design aur brand identity</li>
+            <li>Graphic design — posts, banners, brochures</li>
+            <li>Product photography</li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <h4>Social Media &amp; Content</h4>
+          <ul>
+            <li>Social media management</li>
+            <li>Instagram/Facebook content creation</li>
+            <li>Reels aur short-form video production</li>
+            <li>YouTube marketing</li>
+            <li>Content writing aur copywriting</li>
+            <li>Blog/article writing</li>
+            <li>Brand/corporate video production</li>
+            <li>Influencer marketing</li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <h4>Website &amp; Tech</h4>
+          <ul>
+            <li>Website design aur development</li>
+            <li>Landing page design</li>
+            <li>Website maintenance</li>
+            <li>Conversion-rate optimization</li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <h4>Performance Marketing &amp; Ads</h4>
+          <ul>
+            <li>SEO — Google ranking improve karna</li>
+            <li>Google Ads management</li>
+            <li>Meta Ads — Facebook/Instagram</li>
+            <li>YouTube Ads</li>
+            <li>Lead generation campaigns</li>
+            <li>E-commerce marketing</li>
+            <li>Marketplace marketing — Amazon/Flipkart</li>
+            <li>Local SEO / Google Business Profile</li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <h4>Outreach &amp; Reputation</h4>
+          <ul>
+            <li>WhatsApp marketing</li>
+            <li>Email marketing</li>
+            <li>PR aur media outreach</li>
+            <li>Reputation management — reviews</li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <h4>Strategy &amp; Growth</h4>
+          <ul>
+            <li>Analytics aur monthly reporting</li>
+            <li>Campaign strategy aur product launch marketing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOGLE ADS -->
+  <section class="ads" id="google-ads">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" style="color:var(--gold-light);">Google Ads &amp; Performance Marketing</span>
+        <h2>Aapka goal, sahi campaign</h2>
+        <p>Sales chahiye, leads chahiye, ya sirf brand awareness — goal ke hisaab se hum sahi Google Ads campaign type choose karte hain.</p>
+      </div>
+
+      <div class="ads-table-wrap">
+        <table class="ads-table">
+          <thead>
+            <tr><th>Client Objective</th><th>Agency Campaign Type</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sales</td><td>Search, Performance Max, Shopping, Remarketing</td></tr>
+            <tr><td>Leads</td><td>Search Ads, Performance Max, Lead-form campaigns</td></tr>
+            <tr><td>Website Traffic</td><td>Search, Display, Demand Gen, Video</td></tr>
+            <tr><td>App Promotion</td><td>App campaigns — Android/iOS</td></tr>
+            <tr><td>YouTube Views/Reach</td><td>Video Ads, YouTube campaigns, Demand Gen</td></tr>
+            <tr><td>Local Store Visits</td><td>Performance Max — location/store goals</td></tr>
+            <tr><td>E-commerce Products</td><td>Google Shopping + Performance Max</td></tr>
+            <tr><td>Brand Awareness</td><td>Display, Video, Demand Gen</td></tr>
+            <tr><td>Custom Campaigns</td><td>Aapke goal ke hisaab se manual setup</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ads-package">
+        <h3>Full Google Ads package mein shaamil</h3>
+        <ul class="check-grid">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Goal aur monthly budget planning</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Ads account setup</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>GA4, Google Tag Manager &amp; conversion tracking</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Keyword research</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Search ad copywriting</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Display/video creative</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Product feed &amp; Merchant Center setup</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Audience targeting &amp; remarketing</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Landing page improvement</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Daily/weekly campaign optimization</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Leads, sales, CPL &amp; ROAS reporting</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Monthly performance report &amp; strategy call</li>
+        </ul>
+        <p class="ads-note">Note: App promotion, Shopping aur Local store visits campaigns ke liye respectively client ke paas app, product feed/Merchant Center, aur verified Google Business Profile hona zaroori hai.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHATSAPP API -->
+  <section class="wapi" id="whatsapp-api">
+    <div class="container">
+      <div class="wapi-grid">
+        <div class="wapi-icon" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3C7.03 3 3 7.03 3 12c0 1.77.51 3.42 1.4 4.81L3 21l4.34-1.37A8.93 8.93 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M8.7 8.6c.2-.45.4-.46.6-.47.15 0 .34 0 .5 0 .17 0 .38-.06.6.44s.72 1.77.78 1.9c.06.13.1.28.02.45-.09.17-.13.28-.26.43-.13.15-.27.33-.39.45-.13.13-.26.27-.11.53.14.26.63 1.05 1.37 1.7.94.85 1.72 1.11 1.98 1.24.26.13.4.11.55-.06.15-.18.65-.75.82-1.01.17-.26.34-.21.56-.13.23.09 1.45.7 1.7.83.25.13.42.19.48.29.06.11.06.6-.14 1.18-.2.58-1.14 1.11-1.6 1.18-.42.06-.94.09-1.53-.1a17.4 17.4 0 0 1-1.7-.63c-2.9-1.25-4.72-4.13-4.86-4.32-.14-.19-1.16-1.54-1.16-2.93 0-1.4.73-2.08.99-2.36Z" fill="white"/>
+          </svg>
+        </div>
+        <div>
+          <span class="eyebrow" style="color:var(--whatsapp-deep);">WhatsApp Business API</span>
+          <h2>Customers se seedha WhatsApp par judiye</h2>
+          <p>Hum kisi bhi company ke liye official WhatsApp Business API set up karke dete hain — chahe aapka business kitna bhi bada ya chhota ho.</p>
+          <ul class="wapi-list">
+            <li>Automated replies aur quick responses</li>
+            <li>Broadcast aur bulk messaging</li>
+            <li>Order/booking updates seedha WhatsApp par</li>
+            <li>Catalog aur product sharing</li>
+            <li>Verified business profile setup mein madad</li>
+            <li>Kisi bhi industry ki company ke liye available</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/918462942003?text=Hi%2C%20mujhe%20WhatsApp%20Business%20API%20setup%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener" class="btn btn-whatsapp">Jaankari Lein</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Contact</span>
+        <h2>Project Shuru Karein</h2>
+        <p>Form bhariye — hum aapko WhatsApp par turant reply karenge.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form class="form-panel" id="leadForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Naam</label>
+              <input type="text" id="f-name" name="name" required placeholder="Aapka poora naam">
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone Number</label>
+              <input type="tel" id="f-phone" name="phone" required placeholder="10-digit mobile number">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-email">Gmail / Email</label>
+              <input type="email" id="f-email" name="email" required placeholder="aap@gmail.com">
+            </div>
+            <div class="field">
+              <label for="f-age">Age</label>
+              <input type="number" id="f-age" name="age" min="16" max="100" required placeholder="Aapki age">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-gender">Gender</label>
+              <select id="f-gender" name="gender" required>
+                <option value="" disabled selected>Chuniye</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-service">Interested Service</label>
+              <select id="f-service" name="service">
+                <option value="" disabled selected>Chuniye (optional)</option>
+                <option>Brand Identity</option>
+                <option>Social Media Management</option>
+                <option>Reels &amp; Video Production</option>
+                <option>Meta &amp; Google Ads</option>
+                <option>Website Development</option>
+                <option>SEO &amp; Local SEO</option>
+                <option>Lead Generation</option>
+                <option>Content &amp; Graphic Design</option>
+                <option>WhatsApp Business API</option>
+                <option>Kuch Aur</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-message">Message (optional)</label>
+            <textarea id="f-message" name="message" placeholder="Apne business aur zaroorat ke baare mein thoda bataiye..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">WhatsApp par Bhejein</button>
+          <p class="form-note">Submit karte hi WhatsApp khulega, aapki details ke saath — bas send dabana hai.</p>
+        </form>
+
+        <div class="direct-card">
+          <h3>Seedha Baat Karni Hai?</h3>
+          <p>Form bharne ka time nahi? Koi baat nahi — seedhe message ya call kar dijiye.</p>
+          <div class="direct-list">
+            <a href="https://wa.me/918462942003" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 7.03 3 12c0 1.77.51 3.42 1.4 4.81L3 21l4.34-1.37A8.93 8.93 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9Z" stroke="currentColor" stroke-width="1.6"/></svg>
+              +91 84629 42003
+            </a>
+            <a href="mailto:ashtavakramedia.agency@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6"/></svg>
+              ashtavakramedia.agency@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="ashtavakra-media-logo.png" alt="Ashtavakra Media">
+        <p>Rasta tedha, result seedha. Branding se lekar Google Ads tak — aapke business ki growth, humari zimmedari.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#google-ads">Google Ads</a></li>
+          <li><a href="#whatsapp-api">WhatsApp API</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/918462942003" target="_blank" rel="noopener">+91 84629 42003</a></li>
+          <li><a href="mailto:ashtavakramedia.agency@gmail.com">ashtavakramedia.agency@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ashtavakra Media. Sabhi rights reserved.</span>
+      <span>Made in India</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/918462942003?text=Hi%20Ashtavakra%20Media!" target="_blank" rel="noopener" aria-label="WhatsApp par message karein">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 7.03 3 12c0 1.77.51 3.42 1.4 4.81L3 21l4.34-1.37A8.93 8.93 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.7 8.6c.2-.45.4-.46.6-.47.15 0 .34 0 .5 0 .17 0 .38-.06.6.44s.72 1.77.78 1.9c.06.13.1.28.02.45-.09.17-.13.28-.26.43-.13.15-.27.33-.39.45-.13.13-.26.27-.11.53.14.26.63 1.05 1.37 1.7.94.85 1.72 1.11 1.98 1.24.26.13.4.11.55-.06.15-.18.65-.75.82-1.01.17-.26.34-.21.56-.13.23.09 1.45.7 1.7.83.25.13.42.19.48.29.06.11.06.6-.14 1.18-.2.58-1.14 1.11-1.6 1.18-.42.06-.94.09-1.53-.1a17.4 17.4 0 0 1-1.7-.63c-2.9-1.25-4.72-4.13-4.86-4.32-.14-.19-1.16-1.54-1.16-2.93 0-1.4.73-2.08.99-2.36Z" fill="white"/></svg>
+</a>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Contact form -> WhatsApp
+  const leadForm = document.getElementById('leadForm');
+  leadForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!leadForm.checkValidity()){
+      leadForm.reportValidity();
+      return;
+    }
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const age = document.getElementById('f-age').value.trim();
+    const gender = document.getElementById('f-gender').value;
+    const service = document.getElementById('f-service').value || 'Nahi bataya';
+    const message = document.getElementById('f-message').value.trim() || 'Koi extra message nahi';
+
+    const text = `Naya Project Inquiry — Ashtavakra Media website se\n\n`
+      + `Naam: ${name}\n`
+      + `Number: ${phone}\n`
+      + `Email: ${email}\n`
+      + `Age: ${age}\n`
+      + `Gender: ${gender}\n`
+      + `Interested Service: ${service}\n`
+      + `Message: ${message}`;
+
+    const url = `https://wa.me/918462942003?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
