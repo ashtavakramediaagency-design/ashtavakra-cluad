@@ -129,33 +129,59 @@
     align-items:center;
     gap:8px;
     padding:14px 26px;
-    border-radius:var(--radius-s);
-    font-weight:600;
+    border-radius:10px;
+    font-weight:700;
     font-size:0.98rem;
     text-decoration:none;
     border:1.5px solid transparent;
     cursor:pointer;
-    transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color .15s ease;
+    position:relative;
+    transition:transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease, color .15s ease, top .1s ease;
   }
   .btn:focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
   .btn-primary{
-    background:linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+    background:linear-gradient(180deg, #D89B52 0%, var(--gold) 55%, var(--gold-deep) 100%);
     color:var(--paper-white);
+    box-shadow:0 5px 0 var(--gold-deep), 0 9px 16px rgba(43,42,37,0.28);
+    top:0;
   }
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(138,90,42,0.35);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 7px 0 var(--gold-deep), 0 14px 22px rgba(43,42,37,0.32);}
+  .btn-primary:active{transform:translateY(3px); box-shadow:0 2px 0 var(--gold-deep), 0 4px 8px rgba(43,42,37,0.25);}
   .btn-ghost{
-    background:transparent;
+    background:var(--paper-white);
     color:var(--ink);
     border-color:var(--line-dark);
+    box-shadow:0 4px 0 var(--line-dark), 0 7px 14px rgba(43,42,37,0.10);
   }
-  .btn-ghost:hover{border-color:var(--ink); background:rgba(43,42,37,0.04);}
-  .btn-ghost.on-dark{color:var(--paper-text); border-color:var(--line-dark);}
+  .btn-ghost:hover{border-color:var(--ink); background:rgba(43,42,37,0.04); transform:translateY(-2px); box-shadow:0 6px 0 var(--line-dark), 0 12px 18px rgba(43,42,37,0.14);}
+  .btn-ghost:active{transform:translateY(2px); box-shadow:0 2px 0 var(--line-dark);}
+  .btn-ghost.on-dark{color:var(--paper-text); border-color:var(--line-dark); background:transparent; box-shadow:0 4px 0 rgba(228,217,194,0.25);}
   .btn-ghost.on-dark:hover{border-color:var(--paper-text); background:rgba(255,255,255,0.06);}
   .btn-whatsapp{
-    background:var(--whatsapp);
+    background:linear-gradient(180deg, #34DA75 0%, var(--whatsapp) 55%, var(--whatsapp-deep) 100%);
     color:#fff;
+    box-shadow:0 5px 0 #158A45, 0 9px 16px rgba(21,138,69,0.30);
   }
-  .btn-whatsapp:hover{background:var(--whatsapp-deep); transform:translateY(-2px);}
+  .btn-whatsapp:hover{background:var(--whatsapp-deep); transform:translateY(-2px); box-shadow:0 7px 0 #158A45, 0 14px 20px rgba(21,138,69,0.32);}
+  .btn-whatsapp:active{transform:translateY(3px); box-shadow:0 2px 0 #158A45;}
+
+  /* ---------- OFFER BAR ---------- */
+  .offer-bar{
+    background:linear-gradient(90deg, var(--gold-deep), var(--gold) 50%, var(--gold-deep));
+    color:var(--paper-white);
+    text-align:center;
+    font-size:0.88rem;
+    padding:10px 16px;
+    position:relative; z-index:60;
+  }
+  .offer-bar-inner{
+    display:inline-flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:center;
+  }
+  .offer-bar a{
+    color:var(--paper-white); text-decoration:underline; font-weight:700; margin-left:4px;
+    white-space:nowrap;
+  }
+  @media (max-width:560px){ .offer-bar{font-size:0.78rem; padding:8px 12px;} }
 
   /* ---------- NAV ---------- */
   header.site-nav{
@@ -221,7 +247,52 @@
   .hero-art{
     position:relative; display:flex; justify-content:center; align-items:center;
   }
+  .hero-fx{position:absolute; inset:-15%; pointer-events:none; z-index:0;}
+  .hero-fx .glow{
+    position:absolute; top:50%; left:50%; width:75%; padding-top:75%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(189,127,63,0.38) 0%, rgba(228,197,148,0.16) 45%, transparent 72%);
+    filter:blur(6px);
+    animation:glow-pulse 5s ease-in-out infinite;
+  }
+  .hero-fx .ring{
+    position:absolute; top:50%; left:50%; width:92%; padding-top:92%;
+    transform:translate(-50%,-50%) rotate(0deg);
+    border-radius:50%;
+    background:conic-gradient(from 0deg, transparent 0deg, rgba(228,197,148,0.55) 50deg, transparent 130deg, transparent 210deg, rgba(189,127,63,0.45) 270deg, transparent 330deg);
+    opacity:0.8;
+    animation:ring-spin 16s linear infinite;
+  }
+  .hero-fx .mote{
+    position:absolute; border-radius:50%;
+    background:var(--gold);
+    opacity:0.7;
+    animation:mote-float 6s ease-in-out infinite;
+  }
+  .hero-fx .m1{top:18%; left:16%; width:7px; height:7px; animation-delay:0s;}
+  .hero-fx .m2{top:72%; left:22%; width:4px; height:4px; animation-delay:1.2s;}
+  .hero-fx .m3{top:14%; left:78%; width:6px; height:6px; animation-delay:2.1s;}
+  .hero-fx .m4{top:80%; left:72%; width:5px; height:5px; animation-delay:3s;}
+  .hero-fx .m5{top:46%; left:6%; width:4px; height:4px; animation-delay:0.7s;}
+  .hero-fx .m6{top:50%; left:92%; width:6px; height:6px; animation-delay:2.6s;}
+  @keyframes glow-pulse{
+    0%,100%{opacity:0.55; transform:translate(-50%,-50%) scale(0.94);}
+    50%{opacity:1; transform:translate(-50%,-50%) scale(1.06);}
+  }
+  @keyframes ring-spin{
+    from{transform:translate(-50%,-50%) rotate(0deg);}
+    to{transform:translate(-50%,-50%) rotate(360deg);}
+  }
+  @keyframes mote-float{
+    0%,100%{transform:translateY(0) scale(1); opacity:0.45;}
+    50%{transform:translateY(-18px) scale(1.35); opacity:1;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-fx .glow, .hero-fx .ring, .hero-fx .mote{animation:none;}
+  }
   .hero-art img{
+    position:relative; z-index:1;
     width:100%; max-width:420px;
     filter:drop-shadow(0 24px 40px rgba(43,42,37,0.14));
     animation:hero-in 0.9s ease both;
@@ -290,7 +361,13 @@
   }
   .cat-block h4{
     font-family:'Work Sans'; font-size:1rem; font-weight:700;
-    padding-bottom:10px; margin-bottom:14px; border-bottom:1px solid var(--line);
+    padding-bottom:10px; margin-bottom:14px;
+    border-bottom:3px solid var(--cat-color, var(--gold));
+    display:flex; align-items:center; gap:8px;
+  }
+  .cat-block h4::before{
+    content:""; width:9px; height:9px; border-radius:3px; background:var(--cat-color, var(--gold));
+    flex:none;
   }
   .cat-block li{
     position:relative; padding-left:16px; margin-bottom:10px;
@@ -298,8 +375,14 @@
   }
   .cat-block li::before{
     content:""; position:absolute; left:0; top:0.55em;
-    width:6px; height:6px; border-radius:50%; background:var(--gold);
+    width:6px; height:6px; border-radius:50%; background:var(--cat-color, var(--gold));
   }
+  .cat-block.c-gold{--cat-color:#BD7F3F;}
+  .cat-block.c-rose{--cat-color:#B4573F;}
+  .cat-block.c-teal{--cat-color:#3B6E71;}
+  .cat-block.c-amber{--cat-color:#C2703A;}
+  .cat-block.c-plum{--cat-color:#7D4F6D;}
+  .cat-block.c-olive{--cat-color:#5C6E3F;}
   @media (max-width:880px){ .cat-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:560px){ .cat-grid{grid-template-columns:1fr;} }
 
@@ -397,6 +480,17 @@
     color:var(--paper-text); font-weight:500; font-size:0.95rem;
   }
   .direct-list a:hover{color:var(--gold-light);}
+
+  .contact-side{display:flex; flex-direction:column; gap:24px;}
+
+  .payment-card{
+    background:var(--paper-white); border:1px solid var(--line); border-top:3px solid var(--gold);
+    border-radius:var(--radius-m); padding:28px 32px;
+  }
+  .payment-card h3{font-size:1.1rem; margin-bottom:0.3em;}
+  .payment-card p{font-size:0.92rem; color:var(--ink-2); margin-bottom:18px;}
+  .payment-btn-wrap{display:flex;}
+  .payment-btn-wrap form{width:100%;}
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--ink); color:var(--paper-text-dim); padding-top:64px;}
@@ -509,6 +603,16 @@
 
   /* ---------- RATING ---------- */
   .rate{background:var(--paper-white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .reviews-wall{margin-bottom:56px;}
+  .reviews-empty{
+    max-width:520px; margin:0 auto; text-align:center;
+    border:1.5px dashed var(--line-dark);
+    border-radius:var(--radius-m);
+    padding:40px 32px;
+  }
+  .reviews-empty h3{font-size:1.1rem; margin:14px 0 8px;}
+  .reviews-empty p{margin:0 auto; font-size:0.92rem; color:var(--ink-2);}
+
   .rate-panel{
     max-width:640px; margin:0 auto; text-align:center;
   }
@@ -527,6 +631,13 @@
 </style>
 </head>
 <body>
+
+<div class="offer-bar">
+  <span class="offer-bar-inner">
+    🎉 <strong>Naye Clients ke liye:</strong> Pehle project pe <strong>20% OFF</strong> — every project cost par!
+    <a href="#contact">Abhi Claim Karein →</a>
+  </span>
+</div>
 
 <header class="site-nav">
   <div class="nav-row">
@@ -564,6 +675,16 @@
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
+        <div class="hero-fx">
+          <span class="glow"></span>
+          <span class="ring"></span>
+          <span class="mote m1"></span>
+          <span class="mote m2"></span>
+          <span class="mote m3"></span>
+          <span class="mote m4"></span>
+          <span class="mote m5"></span>
+          <span class="mote m6"></span>
+        </div>
         <img src="ashtavakra-media-icon.png" alt="">
       </div>
     </div>
@@ -621,7 +742,7 @@
       </div>
 
       <div class="cat-grid">
-        <div class="cat-block">
+        <div class="cat-block c-gold">
           <h4>Branding &amp; Design</h4>
           <ul>
             <li>Brand strategy</li>
@@ -630,7 +751,7 @@
             <li>Product photography</li>
           </ul>
         </div>
-        <div class="cat-block">
+        <div class="cat-block c-rose">
           <h4>Social Media &amp; Content</h4>
           <ul>
             <li>Social media management</li>
@@ -643,7 +764,7 @@
             <li>Influencer marketing</li>
           </ul>
         </div>
-        <div class="cat-block">
+        <div class="cat-block c-teal">
           <h4>Website, App &amp; Tech</h4>
           <ul>
             <li>Website design aur development</li>
@@ -654,7 +775,7 @@
             <li>Conversion-rate optimization</li>
           </ul>
         </div>
-        <div class="cat-block">
+        <div class="cat-block c-amber">
           <h4>Performance Marketing &amp; Ads</h4>
           <ul>
             <li>SEO — Google ranking improve karna</li>
@@ -667,7 +788,7 @@
             <li>Local SEO / Google Business Profile</li>
           </ul>
         </div>
-        <div class="cat-block">
+        <div class="cat-block c-plum">
           <h4>Outreach &amp; Reputation</h4>
           <ul>
             <li>WhatsApp marketing</li>
@@ -676,7 +797,7 @@
             <li>Reputation management — reviews</li>
           </ul>
         </div>
-        <div class="cat-block">
+        <div class="cat-block c-olive">
           <h4>Strategy &amp; Growth</h4>
           <ul>
             <li>Analytics aur monthly reporting</li>
@@ -850,6 +971,19 @@
   <!-- RATING / FEEDBACK -->
   <section class="rate" id="rate">
     <div class="container">
+      <div class="section-head" style="margin-bottom:32px;">
+        <span class="eyebrow">Client Reviews</span>
+        <h2>Hamare Clients Kya Kehte Hain</h2>
+      </div>
+
+      <div class="reviews-wall">
+        <div class="reviews-empty">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 8h4v5c0 2.2-1.8 4-4 4H6v-2h1c1.1 0 2-.9 2-2H7V8Zm8 0h4v5c0 2.2-1.8 4-4 4h-1v-2h1c1.1 0 2-.9 2-2h-2V8Z" fill="var(--gold)"/></svg>
+          <h3>Abhi tak koi review nahi hai</h3>
+          <p>Ashtavakra Media 2026 mein shuru hui — yahan sabse pehla review dene wale bano! Neeche apna rating aur feedback dijiye, achhe reviews yahan seedha feature honge.</p>
+        </div>
+      </div>
+
       <div class="rate-panel">
         <div class="rate-copy">
           <span class="eyebrow">Feedback</span>
@@ -947,18 +1081,34 @@
           <p class="form-note">Submit karte hi WhatsApp khulega, aapki details ke saath — bas send dabana hai.</p>
         </form>
 
-        <div class="direct-card">
-          <h3>Seedha Baat Karni Hai?</h3>
-          <p>Form bharne ka time nahi? Koi baat nahi — seedhe message ya call kar dijiye.</p>
-          <div class="direct-list">
-            <a href="https://wa.me/918462942003" target="_blank" rel="noopener">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 7.03 3 12c0 1.77.51 3.42 1.4 4.81L3 21l4.34-1.37A8.93 8.93 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9Z" stroke="currentColor" stroke-width="1.6"/></svg>
-              +91 84629 42003
-            </a>
-            <a href="mailto:ashtavakramedia.agency@gmail.com">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6"/></svg>
-              ashtavakramedia.agency@gmail.com
-            </a>
+        <div class="contact-side">
+          <div class="direct-card">
+            <h3>Seedha Baat Karni Hai?</h3>
+            <p>Form bharne ka time nahi? Koi baat nahi — seedhe message ya call kar dijiye.</p>
+            <div class="direct-list">
+              <a href="https://wa.me/918462942003" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 7.03 3 12c0 1.77.51 3.42 1.4 4.81L3 21l4.34-1.37A8.93 8.93 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9Z" stroke="currentColor" stroke-width="1.6"/></svg>
+                +91 84629 42003
+              </a>
+              <a href="mailto:ashtavakramedia.agency@gmail.com">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6"/></svg>
+                ashtavakramedia.agency@gmail.com
+              </a>
+              <a href="https://instagram.com/ashtavakramedia" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
+                @ashtavakramedia
+              </a>
+            </div>
+          </div>
+
+          <div class="payment-card">
+            <h3>Online Payment Karein</h3>
+            <p>Project ka payment seedha yahan se — UPI, card, netbanking sab chalega.</p>
+            <div class="payment-btn-wrap">
+              <form>
+                <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TYrXUbL0b0trLr" async></script>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -989,6 +1139,7 @@
         <ul class="footer-links">
           <li><a href="https://wa.me/918462942003" target="_blank" rel="noopener">+91 84629 42003</a></li>
           <li><a href="mailto:ashtavakramedia.agency@gmail.com">ashtavakramedia.agency@gmail.com</a></li>
+          <li><a href="https://instagram.com/ashtavakramedia" target="_blank" rel="noopener">@ashtavakramedia</a></li>
         </ul>
       </div>
     </div>
@@ -1089,6 +1240,27 @@
     window.open(url, '_blank');
   });
 </script>
+
+<!--
+  LIVE CHAT WIDGET (Tawk.to — 100% free, permanent, apna admin app/dashboard bhi milta hai)
+  Activate karne ke steps:
+  1. https://www.tawk.to par free account banaiye (2 minute lagenge)
+  2. Ek "Property" add karke apna Property ID aur Widget ID copy kariye
+  3. Neeche wale <script> ko UN-COMMENT kar dijiye aur YOUR_PROPERTY_ID / YOUR_WIDGET_ID ko apne actual IDs se replace kar dijiye
+  4. Tawk.to ki mobile app se aap seedha apne phone par bhi live chat reply kar sakte hain — wahi aapka "admin dashboard" hoga
+
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {};
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/YOUR_PROPERTY_ID/YOUR_WIDGET_ID';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+-->
 
 </body>
 </html>
